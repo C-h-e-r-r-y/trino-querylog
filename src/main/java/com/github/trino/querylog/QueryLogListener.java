@@ -39,22 +39,31 @@ public class QueryLogListener implements EventListener {
 
     @Override
     public void queryCreated(final QueryCreatedEvent queryCreatedEvent) {
+        System.out.println("queryCreatedEvent!!!");
+        System.out.println("queryCreatedEvent" + queryCreatedEvent);
         if (trackEventCreated) {
             logger.info(new ObjectMessage(queryCreatedEvent));
         }
+        throw new RuntimeException("queryCreatedEvent" + queryCreatedEvent);
     }
 
     @Override
     public void queryCompleted(final QueryCompletedEvent queryCompletedEvent) {
+        System.out.println("queryCompletedEvent!!!");
+        System.out.println("queryCompletedEvent" + queryCompletedEvent);
         if (trackEventCompleted) {
             logger.info(new ObjectMessage(queryCompletedEvent));
         }
+        throw new RuntimeException("queryCompletedEvent" + queryCompletedEvent);
     }
 
     @Override
     public void splitCompleted(final SplitCompletedEvent splitCompletedEvent) {
+        System.out.println("splitCompletedEvent!!!");
+        System.out.println("splitCompletedEvent" + splitCompletedEvent);
         if (trackEventCompletedSplit) {
             logger.info(new ObjectMessage(splitCompletedEvent));
         }
+        throw new RuntimeException("splitCompletedEvent" + splitCompletedEvent);
     }
 }
